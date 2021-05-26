@@ -145,21 +145,13 @@ void lightControl() {
 
 void setLight() {
   if (shaderOff) {
-    float val = (float)light/(float)width*float(255);
-    ambientLight((int)val, val, val);
-    pointLight(204, 153, 0, light, height/2, 400);
+    shader(sh);
+    sh.set("u_resolution", float(width), float(height));
+    sh.set("u_time", float(millis())/float(1000));
   } else {
     float dirY = (mouseY / float(height) - 0.5) * 6;
     float dirX = (mouseX / float(width) - 0.5) * 6;
-    directionalLight(240, 240, 240, -dirX, -dirY, -1);
-
-    if (posCam.z > -width && posCam.z < -width/2) {
-      shader(sh);
-    } else if (posCam.z < -width) {
-      shader(sh);
-      sh.set("u_resolution", float(width), float(height));
-      sh.set("u_time", float(millis())/float(1000));
-    }
+    directionalLight(240, 240, 240, -dirX, -dirY, -1); 
   }
 }
 
