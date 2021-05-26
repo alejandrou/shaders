@@ -53,7 +53,6 @@ Las mayores decisiones tomadas y las que mas pruebas requirieron fue el uso de l
       }
     }
   }
-
  <p align="center"><img src="images/escena.png" alt="Escena" width="500" height="500"></br>Pantalla final</p>
  
 
